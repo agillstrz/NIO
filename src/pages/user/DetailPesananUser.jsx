@@ -1,15 +1,16 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import Loading from "../../compontents/admin/Loading";
 import { FetchData } from "../../services/FetchData";
 import { CONSTANT } from "../../utils/CONSTANT.JS";
 export default function DetailPesananUser() {
   let { id } = useParams();
 
-  const { data, isLoading } = FetchData(`pesanan-user/${id}`);
+  const { data, isLoading, isError } = FetchData(`pesanan-user/${id}`);
   if (isLoading) {
     return <Loading />;
   }
+
   return (
     <div className="pt-28 min-h-screen">
       <h2 className="text-3xl text-center font-bold mb-5 text-primary">

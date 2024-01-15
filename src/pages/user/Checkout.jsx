@@ -33,7 +33,7 @@ export default function Checkout() {
     onSuccess: () => {
       navigate("/");
       window.open(
-        "https://api.whatsapp.com/send?phone=6282281788810&text=Bukti%20Transfer",
+        "https://api.whatsapp.com/send?phone=6281243001327&text=Bukti%20Transfer",
         "_blank"
       );
     },
