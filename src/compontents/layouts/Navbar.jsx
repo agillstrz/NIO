@@ -50,10 +50,18 @@ export default function Navbar() {
         </button>
         {menu && (
           <div className="fixed inset-0 bg-transparent backdrop-blur-md  mt-20 items-start px-5 pt-2 flex text-2xl font-semibold gap-2 flex-col">
-            <Link className="w-full border p-2 " to={`/about`}>
+            <Link
+              onClick={() => setMenu(false)}
+              className="w-full border p-2 "
+              to={`/tentang`}
+            >
               Tentang
             </Link>
-            <Link className="w-full border p-2 " to={`/award`}>
+            <Link
+              onClick={() => setMenu(false)}
+              className="w-full border p-2 "
+              to={`/award`}
+            >
               Awards
             </Link>
 

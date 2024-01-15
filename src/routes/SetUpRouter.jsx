@@ -29,7 +29,7 @@ export default function SetUpRouter() {
           </Route>
         </Route>
         <Route path="admin" element={<PrivateRoute />}>
-          <Route index element={<ProductAdmin />} />
+          <Route path="product" element={<ProductAdmin />} />
           <Route path="pesanan" element={<Pesanan />} />
           <Route path="pesanan/:id" element={<DetailPesanan />} />
         </Route>

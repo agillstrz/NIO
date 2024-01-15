@@ -10,8 +10,8 @@ export default function ModalEditProduct({ refetch, data }) {
   const [image, setImage] = useState(data.img);
   const { mutate: updateProduk } = UsePostData({
     url: `product/${data.id}`,
-    onSuccess: (res) => {
-      toast.success(res.message, {
+    onSuccess: () => {
+      toast.success("Berhasil Memperbarui Produk", {
         autoClose: 500,
         theme: "dark",
       });

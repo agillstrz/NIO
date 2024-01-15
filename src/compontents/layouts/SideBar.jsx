@@ -1,14 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FaDumpster, FaMoneyCheck } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { CiLogout } from "react-icons/ci";
 
 import logo from "../../assets/img/logo.jpeg";
+import AUTH from "../../utils/Auth";
 export default function SideBar() {
   let navigate = useNavigate();
+  const { pathname } = useLocation();
   const menus = [
     {
       label: "Product",
-      path: "/admin",
+      path: "product",
       icon: <FaDumpster />,
     },
     {
@@ -18,11 +21,11 @@ export default function SideBar() {
     },
   ];
   return (
-    <div className="bg-[#211511] h-screen sticky top-0 py-10 px-5">
+    <div className="bg-[#1B1C1E] h-screen sticky top-0 py-10 px-5">
       <ul className="flex flex-col  text-white gap-2">
         <div
           onClick={() => navigate("/")}
-          className="flex w-full flex-col items-center"
+          className="flex cursor-pointer w-full flex-col items-center"
         >
           <img src={logo} className="h-12 w-12 rounded-full" alt="" />
           <button className="text-primary text-xl font-bold">NIO'S</button>
@@ -30,13 +33,21 @@ export default function SideBar() {
         {menus.map((menu) => (
           <Link
             to={menu.path}
-            className="rounded-lg flex items-center gap-2 text-lg font-semibold px-2 py-1"
+            className={`rounded-lg flex  items-center gap-2 text-lg font-semibold px-2 py-1 ${
+              pathname.split("/").pop().includes(menu.path) && "bg-[#414755]"
+            } `}
             key={menu.path}
           >
             <span className="text-primary">{menu.icon}</span>
             {menu.label}
           </Link>
         ))}
+        <button
+          onClick={() => AUTH.logout(navigate)}
+          className={`rounded-lg flex  items-center gap-2 text-lg  font-semibold px-2 py-1  `}
+        >
+          <CiLogout className="text-primary" /> Logout
+        </button>
       </ul>
     </div>
   );

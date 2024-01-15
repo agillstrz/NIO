@@ -1,8 +1,8 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import { toast } from "react-toastify";
-import Button from "../../compontents/Button";
 import LoadingAdmin from "../../compontents/admin/LoadingAdmin";
 import ModalAddProduct from "../../compontents/modal/ModalAddProduct";
+import ModalDelete from "../../compontents/modal/ModalDelete";
 import ModalEditProduct from "../../compontents/modal/ModalEditProduct";
 import { FetchData } from "../../services/FetchData";
 import UseDeleteData from "../../services/UseDeleteData";
@@ -10,10 +10,10 @@ import { CONSTANT } from "../../utils/constant";
 export default function ProductAdmin() {
   const { data, isLoading, refetch } = FetchData("product");
 
-  const { mutate: deleteProduct } = UseDeleteData({
+  const { mutate: deleteProduct, isLoading: loadingDelete } = UseDeleteData({
     url: "product",
-    onSuccess: (res) => {
-      toast(res.message, {
+    onSuccess: () => {
+      toast.success("Berhasil menghapus data", {
         autoClose: 500,
         theme: "dark",
       });
@@ -24,6 +24,10 @@ export default function ProductAdmin() {
   if (isLoading) {
     return <LoadingAdmin />;
   }
+
+  const handleDelete = (id) => {
+    deleteProduct(id);
+  };
   return (
     <>
       <div className="w-full ">
@@ -65,10 +69,15 @@ export default function ProductAdmin() {
                   <td className="rowtable  gap-3   ">
                     <div className="flex items-center gap-2 justify-center ">
                       <ModalEditProduct data={product} refetch={refetch} />
-                      <Button
+                      {/* <Button
                         onClick={() => deleteProduct(product.id)}
                         style={"px-4 py-2"}
                         label={"Delete"}
+                      /> */}
+                      <ModalDelete
+                        handleDelete={handleDelete}
+                        id={product.id}
+                        loadingDelete={loadingDelete}
                       />
                     </div>
                   </td>

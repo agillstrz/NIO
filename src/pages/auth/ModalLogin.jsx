@@ -50,7 +50,7 @@ export default function ModalLogin() {
           position: "top-center",
         });
         if (AUTH.isAuthorization() && AUTH.getRole() == 1) {
-          navigate("/admin");
+          navigate("/admin/product");
         } else {
           navigate("/");
         }
