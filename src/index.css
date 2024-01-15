@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rowtable {
+  @apply border py-2 px-2;
+}
