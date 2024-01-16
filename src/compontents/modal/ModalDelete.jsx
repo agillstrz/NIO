@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { TiWarning } from "react-icons/ti";
-import Button from "../Button";
-import Modal from "./Modal";
 import { useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
+import { TiWarning } from "react-icons/ti";
+import Modal from "./Modal";
 
 export default function ModalDelete({ handleDelete, id, loadingDelete }) {
   const [modal, setModal] = useState(false);
