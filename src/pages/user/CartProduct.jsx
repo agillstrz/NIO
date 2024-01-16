@@ -1,8 +1,8 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
-import { ImCross } from "react-icons/im";
 import { IoIosCart } from "react-icons/io";
+import { RiDeleteBinFill } from "react-icons/ri";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -42,7 +42,8 @@ export default function CartProduct() {
         <h1 className="lg:text-3xl text-xl font-bold text-primary  flex items-center gap-2 justify-center pt-24 mb-5">
           Keranjang <IoIosCart />
         </h1>
-        {data.data.length > 0 ? (
+
+        {data?.data.length > 0 ? (
           <>
             <div className="grid lg:grid-cols-2  lg:gap-10 gap-2 w-full  place-content-center ">
               {isLoading
@@ -103,7 +104,7 @@ export default function CartProduct() {
                         onClick={() => deleteCart(m.id)}
                         className="absolute hover:text-primary transition-all duration-150 ease-linear right-2 top-2 cursor-pointer"
                       >
-                        <ImCross className="lg:text-[25px] " />
+                        <RiDeleteBinFill className="lg:text-[25px] " />
                       </button>
                     </div>
                   ))}

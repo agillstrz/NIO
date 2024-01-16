@@ -21,8 +21,8 @@ export default function SideBar() {
     },
   ];
   return (
-    <div className="bg-[#1B1C1E] h-screen sticky top-0 py-10 px-5">
-      <ul className="flex flex-col  text-white gap-2">
+    <div className="bg-white border h-screen sticky top-0 py-10 px-5">
+      <ul className="flex flex-col  text-primary gap-2">
         <div
           onClick={() => navigate("/")}
           className="flex cursor-pointer w-full flex-col items-center"
@@ -34,11 +34,18 @@ export default function SideBar() {
           <Link
             to={menu.path}
             className={`rounded-lg flex  items-center gap-2 text-lg font-semibold px-2 py-1 ${
-              pathname.split("/").pop().includes(menu.path) && "bg-[#414755]"
+              pathname.split("/").pop().includes(menu.path) &&
+              "bg-primary text-white"
             } `}
             key={menu.path}
           >
-            <span className="text-primary">{menu.icon}</span>
+            <span
+              className={`${
+                pathname.split("/").pop().includes(menu.path) && " text-white"
+              }`}
+            >
+              {menu.icon}
+            </span>
             {menu.label}
           </Link>
         ))}

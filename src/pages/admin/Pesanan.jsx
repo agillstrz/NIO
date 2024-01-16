@@ -13,7 +13,7 @@ export default function Pesanan() {
   }
   return (
     <div className="w-full">
-      <h2 className="text-lg font-bold mb-2">Daftar Pesanan</h2>
+      <h2 className="text-xl font-bold mb-2 text-primary">Daftar Pesanan</h2>
       <table className="table-fixed w-full  ">
         <thead className="">
           <tr className="font-semibold">

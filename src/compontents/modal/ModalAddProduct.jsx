@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useFormik } from "formik";
 import { useState } from "react";
+import { GrAdd } from "react-icons/gr";
 import { toast } from "react-toastify";
 import UsePostData from "../../services/UsePostData";
-import Button from "../Button";
 import Modal from "./Modal";
 export default function ModalAddProduct({ refetch }) {
   const [modal, setModal] = useState(false);
@@ -50,11 +50,12 @@ export default function ModalAddProduct({ refetch }) {
 
   return (
     <>
-      <Button
+      <button
         onClick={() => setModal(true)}
-        style={"px-3 bg-[#28C35F] py-1 "}
-        label={"Tambah Produk"}
-      />
+        className="px-4 py-2 gap-2 flex items-center  btn"
+      >
+        Tambah Produk <GrAdd />
+      </button>
       <Modal modal={modal} setModal={setModal}>
         <div className="bg-white w-[30%] h-fit p-3 rounded-md">
           <h2 className="text-xl font-bold text-center mb-2 text-primary">

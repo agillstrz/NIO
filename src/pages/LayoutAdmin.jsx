@@ -14,7 +14,7 @@ export default function LayoutAdmin() {
       </div>
       <div className=" w-full ">
         <Headers />
-        <div className="mx-20  my-10 ">
+        <div className="mx-5  my-5">
           <Outlet />
         </div>
       </div>

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useFormik } from "formik";
 import { useState } from "react";
+import { FaPenToSquare } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import UsePostData from "../../services/UsePostData";
-import Button from "../Button";
 import Modal from "./Modal";
 export default function ModalEditProduct({ refetch, data }) {
   const [modal, setModal] = useState(false);
@@ -40,11 +40,9 @@ export default function ModalEditProduct({ refetch, data }) {
 
   return (
     <>
-      <Button
-        onClick={() => setModal(true)}
-        style={"px-4 py-2"}
-        label={"Edit"}
-      />
+      <button onClick={() => setModal(true)} className="px-4 py-2 text-xl btn">
+        <FaPenToSquare />
+      </button>
       <Modal modal={modal} setModal={setModal}>
         <div className="bg-white w-[30%] h-fit p-3 rounded-md">
           <h2>Add Product</h2>

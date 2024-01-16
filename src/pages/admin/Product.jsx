@@ -31,7 +31,7 @@ export default function ProductAdmin() {
   return (
     <>
       <div className="w-full ">
-        <div className="flex w-full my-2 justify-end">
+        <div className="flex w-full mb-4 justify-start">
           <ModalAddProduct refetch={refetch} />
         </div>
         <table className="table-fixed w-full  ">
@@ -58,7 +58,7 @@ export default function ProductAdmin() {
                   <td className="rowtable">
                     <FormatRupiah value={product.price} />
                   </td>
-                  <td className="rowtable">{product.stock}</td>
+                  <td className="rowtable text-center">{product.stock}</td>
                   <td className="rowtable flex justify-center">
                     <img
                       className="h-20"

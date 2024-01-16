@@ -3,16 +3,15 @@ import { TiWarning } from "react-icons/ti";
 import Button from "../Button";
 import Modal from "./Modal";
 import { useState } from "react";
+import { FaTrashCan } from "react-icons/fa6";
 
 export default function ModalDelete({ handleDelete, id, loadingDelete }) {
   const [modal, setModal] = useState(false);
   return (
     <>
-      <Button
-        onClick={() => setModal(true)}
-        label={"Hapus"}
-        style={"px-4 py-2"}
-      />
+      <button onClick={() => setModal(true)} className="px-4 py-2 text-xl btn">
+        <FaTrashCan />
+      </button>
       <Modal modal={modal} setModal={setModal}>
         <div className="bg-white w-[90%] lg:w-[30%] h-fit p-3 rounded-md flex flex-col gap-4">
           <h2 className="font-semibold text-center">
